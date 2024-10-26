@@ -2,7 +2,7 @@ import sqlite3
 
 class DataBase:
     def __init__(self):
-        self.conn = sqlite3.connect("games.db")
+        self.conn = sqlite3.connect("lapta/games.db")
         self.conn.autocommit = True
         self.cur = self.conn.cursor()
 
