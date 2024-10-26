@@ -1,14 +1,56 @@
-html, body {
-    height: 100%; /* Устанавливаем высоту на 100% */
-    margin: 0; /* Убираем отступы */
-}
-
 body {
-    display: flex; /* Делаем body флекс-контейнером */
-    flex-direction: column; /* Устанавливаем направление по вертикали */
-    background-repeat: repeat;
+    background-repeat: repeat; /* Повторяем изображение по всей площади */
+    color: #333; /* Тёмно-серый цвет текста */
+    font-family: 'Arial', sans-serif; /* Шрифт для всего документа */
+    margin: 0; /* Убираем отступы у body */
 }
 
-.container {
-    flex: 1; /* Позволяем контейнеру занимать оставшееся пространство */
+header {
+    background-color: rgba(254, 154, 76, 0.9); /* Полупрозрачный основной цвет */
+    padding: 0; /* Убираем отступы */
+}
+
+.text-main {
+    color: #fe9a4c; /* Основной цвет */
+}
+
+.text-dark {
+    color: #222; /* Более тёмный цвет текста */
+}
+
+.text-light {
+    color: #ffc29e; /* Светлый оттенок */
+}
+
+.btn-custom {
+    background-color: #fe9a4c; /* Основной цвет кнопки */
+    color: white; /* Цвет текста кнопки */
+    border: none; /* Убираем границу */
+}
+
+.btn-custom:hover {
+    background-color: #d67e2e; /* Темный оранжевый для эффекта наведения */
+}
+
+footer {
+    background-color: #ffc29e; /* Светлый оранжевый фон для подвала */
+    color: #333; /* Тёмно-серый текст в подвале */
+    padding: 0; /* Убираем отступы */
+}
+
+footer a {
+    color: #333; /* Тёмно-серый цвет ссылок в подвале */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+/* Стили для ссылок в заголовке */
+header .nav-link {
+    color: #222; /* Основной цвет текста */
+}
+
+header .nav-link:hover {
+    color: #fe9a4c; /* Цвет текста при наведении */
 }

@@ -1,6 +1,6 @@
 {% extends 'main/base.html' %}
 
-{% block set_current %}
+{% block links %}
 <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Главная</a></li>
 <li class="nav-item"><a href="{% url 'teams' %}" class="nav-link active" aria-current="page">Команды</a></li>
 <li class="nav-item"><a href="{% url 'matches' %}" class="nav-link">Матчи</a></li>
