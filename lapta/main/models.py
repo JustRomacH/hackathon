@@ -24,7 +24,6 @@ class Participants(models.Model):
     def __str__(self):
         return self.name
 
-
 class Games(models.Model):
     game_date = models.DateField(verbose_name="Дата игры")
     location = models.CharField(max_length=100, verbose_name="Место проведения")

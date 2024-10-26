@@ -1,4 +1,4 @@
-from databse import DataBase
+from lapta.main.databse import DataBase
 
 def main():
     DataBase()

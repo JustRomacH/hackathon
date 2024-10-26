@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from .models import Games
+from .databse import DataBase
 
 # Create your views here.
 def main(request):
-    return render(request, 'main/main.html')
+    db = DataBase()
+    return render(request, 'main/main.html', {'games':games})
