@@ -1,109 +1,99 @@
 from django.db import models
 
-class Awards(models.Model):
-    award_name = models.CharField(max_length=100)
-    season = models.ForeignKey('Seasons', models.DO_NOTHING, blank=True, null=True)
+
+class Team(models.Model):
+    team_name = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    year_formed = models.IntegerField(null=True, blank=True)
 
     class Meta:
-        managed = False
-        db_table = 'awards'
+        db_table = 'teams'
 
 
-class Games(models.Model):
+class Participant(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.IntegerField(null=True, blank=True)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'participants'
+
+
+class Game(models.Model):
     game_date = models.DateField()
     location = models.CharField(max_length=100)
 
     class Meta:
-        managed = False
         db_table = 'games'
 
 
-class Judges(models.Model):
+class Result(models.Model):
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    score = models.IntegerField()
+
+    class Meta:
+        db_table = 'results'
+
+
+class Judge(models.Model):
     name = models.CharField(max_length=100)
     experience_years = models.IntegerField()
 
     class Meta:
-        managed = False
         db_table = 'judges'
 
 
-class Matches(models.Model):
-    game = models.ForeignKey(Games, models.DO_NOTHING)
-    team1 = models.ForeignKey('Teams', models.DO_NOTHING)
-    team2 = models.ForeignKey('Teams', models.DO_NOTHING, related_name='mainmatch_team2_set')
-    winner_team = models.ForeignKey('Teams', models.DO_NOTHING, related_name='mainmatch_winner_team_set')
-
-    class Meta:
-        managed = False
-        db_table = 'matches'
-
-
-class Participants(models.Model):
-    name = models.CharField(max_length=100)
-    age = models.IntegerField()
-    team = models.ForeignKey('Teams', models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'participants'
-
-
-class Results(models.Model):
+class Score(models.Model):
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    judge = models.ForeignKey(Judge, on_delete=models.CASCADE)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
     score = models.IntegerField()
-    game = models.ForeignKey(Games, models.DO_NOTHING)
-    team = models.ForeignKey('Teams', models.DO_NOTHING)
 
     class Meta:
-        managed = False
-        db_table = 'results'
-
-
-class Scores(models.Model):
-    score = models.IntegerField()
-    game = models.ForeignKey(Games, models.DO_NOTHING)
-    judge = models.ForeignKey(Judges, models.DO_NOTHING)
-    team = models.ForeignKey('Teams', models.DO_NOTHING)
-
-    class Meta:
-        managed = False
         db_table = 'scores'
 
 
-class Seasons(models.Model):
+class Season(models.Model):
     year = models.IntegerField()
-    champion_team = models.ForeignKey('Teams', models.DO_NOTHING, blank=True, null=True)
+    champion_team = models.ForeignKey(Team, on_delete=models.SET_NULL, null=True, blank=True)
 
     class Meta:
-        managed = False
         db_table = 'seasons'
 
 
-class Teams(models.Model):
-    team_name = models.CharField(max_length=100)
-    city = models.CharField(max_length=100)
-    year_formed = models.IntegerField()
+class Award(models.Model):
+    award_name = models.CharField(max_length=100)
+    season = models.ForeignKey(Season, on_delete=models.SET_NULL, null=True, blank=True)
 
     class Meta:
-        managed = False
-        db_table = 'teams'
+        db_table = 'awards'
 
 
-class Teamhistory(models.Model):
+class Match(models.Model):
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    team1 = models.ForeignKey(Team, related_name='team1', on_delete=models.CASCADE)
+    team2 = models.ForeignKey(Team, related_name='team2', on_delete=models.CASCADE)
+    winner_team = models.ForeignKey(Team, related_name='winner_team', on_delete=models.SET_NULL, null=True, blank=True)
+
+    class Meta:
+        db_table = 'matches'
+
+
+class TeamStatistic(models.Model):
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    total_games = models.IntegerField(default=0)
+    total_wins = models.IntegerField(default=0)
+    total_losses = models.IntegerField(default=0)
+
+    class Meta:
+        db_table = 'team_statistics'
+
+
+class TeamHistory(models.Model):
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
     event_date = models.DateField()
     event_description = models.TextField()
-    team = models.ForeignKey(Teams, models.DO_NOTHING)
 
     class Meta:
-        managed = False
         db_table = 'team_history'
-
-
-class Teamstatistics(models.Model):
-    total_games = models.IntegerField()
-    total_wins = models.IntegerField()
-    total_losses = models.IntegerField()
-    team = models.ForeignKey(Teams, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'team_statistics'
