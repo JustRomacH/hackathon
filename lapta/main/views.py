@@ -3,6 +3,22 @@ from .models import Games
 from .databse import DataBase
 
 # Create your views here.
-def main(request):
+def home(request):
     db = DataBase()
-    return render(request, 'main/main.html', {'games':games})
+    return render(request, 'main/home.html')
+
+def teams(request):
+    db = DataBase()
+    return render(request, 'main/teams.html')
+
+def matches(request):
+    db = DataBase()
+    return render(request, 'main/matches.html')
+
+def seasons(request):
+    db = DataBase()
+    return render(request, 'main/seasons.html')
+
+def about(request):
+    db = DataBase()
+    return render(request, 'main/about.html')

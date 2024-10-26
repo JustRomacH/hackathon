@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block set_current %}
+<li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Главная</a></li>
+<li class="nav-item"><a href="{% url 'teams' %}" class="nav-link active" aria-current="page">Команды</a></li>
+<li class="nav-item"><a href="{% url 'matches' %}" class="nav-link">Матчи</a></li>
+<li class="nav-item"><a href="{% url 'seasons' %}" class="nav-link">Сезоны</a></li>
+<li class="nav-item"><a href="{% url 'about' %}" class="nav-link">О нас</a></li>
+{% endblock %}
+
+{% block content %}
+<h1>Команды</h1>
+{% endblock %}
