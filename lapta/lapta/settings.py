@@ -12,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-e@td61&xsk65-!6@+@#%jaz_lz3)q#9@!oo1!v!49!&qa#^-v-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['laptahub.freemyip.com', 'www.laptahub.freemyip.com', '216.173.71.91', 'localhost', '127.0.0.1']
 
 
 # Application definition
