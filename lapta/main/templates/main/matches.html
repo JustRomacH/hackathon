@@ -1,5 +1,13 @@
 {% extends 'main/base.html' %}
 
+{% block styles %}
+    {% load static %}
+    body {
+        background-image: url("{% static 'main/images/counter.svg' %}") !important;
+        background-repeat: repeat !important;
+    }
+{% endblock %}
+
 {% block links %}
 <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Главная</a></li>
 <li class="nav-item"><a href="{% url 'teams' %}" class="nav-link">Команды</a></li>
@@ -9,19 +17,32 @@
 {% endblock %}
 
 {% block content %}
-<h1>Матчи</h1>
-{% for match in matches %}
-    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-      <div class="container-fluid py-5">
-        <h2>{{ match.2 }} VS {{ match.3 }}</h2>
-        <h4>Дата проведения: {{ match.5 }}</h4>
-        <h4>Место проведения: {{ match.6 }}</h4>
-        <h3>{{ match.7.0 }}:</h3>
-          <h4>{{ match.7.1 }} очков, судья - {{ match.9.0 }}, {{ match.9.1 }} лет опыта</h4>
-        <h3>{{ match.8.0 }}:</h3>
-          <h4>{{ match.8.1 }} очков, судья - {{ match.10.0 }}, {{ match.10.1 }} лет опыта</h4>
-        <h3>Победитель: {{ match.4 }}</h3>
-      </div>
+<h1 class="display-1 text-center fw-bold my-5 text-white" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Матчи</h1>
+<div class="container" id="main">
+    {% if matches %}
+    {% for match in matches %}
+    <div class="p-5 mb-4 bg-body-tertiary rounded-4 mx-auto" style="max-width: 600px;">
+        <div class="text-center">
+            <h2><b>{{ match.2 }}</b> VS <b>{{ match.3 }}</b></h2>
+            <br>
+            <h4>Дата проведения: {{ match.5 }}</h4>
+            <h4>Место проведения: {{ match.6 }}</h4>
+            <br>
+            <h3>{{ match.7.0 }}:</h3>
+            <h4>{{ match.7.1 }} очков</h4>
+            <h4>Судья - {{ match.9.0 }}, {{ match.9.1 }} лет опыта</h4>
+            <br>
+            <h3>{{ match.8.0 }}:</h3>
+            <h4>{{ match.8.1 }} очков</h4>
+            <h4>Судья - {{ match.10.0 }}, {{ match.10.1 }} лет опыта</h4>
+            <br>
+            <h3>Победитель: {{ match.4 }}</h3>
+        </div>
     </div>
-{% endfor %}
+    {% endfor %}
+{% else %}
+    <h3 class="display-3 text-center fw-bold my-5 text-white" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Похоже тут пока пусто...</h3>
+{% endif %}
+
+</div>
 {% endblock %}

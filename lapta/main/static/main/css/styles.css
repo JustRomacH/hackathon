@@ -1,11 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Russo+One&display=swap');
+
+
 /* Основные настройки для body и html */
 body, html {
     height: 100%;
     display: flex;
     flex-direction: column;
     margin: 0;
-    font-family: "JetBrains Mono", sans-serif;
+    font-family: "Poppins", Arial, sans-serif; !important; /* Устанавливаем Poppins или Arial, sans-serif */
+    font-weight: 700; !important;/* Жирный шрифт */
 }
+
+*, div.container-fluid, h1, h2, h3, h4, h5, p {
+    font-family: "Poppins", Arial, sans-serif !important; /* Устанавливаем Poppins или Arial, sans-serif */
+    font-weight: 700 !important;/* Жирный шрифт */
+}
+
 
 /* Настройки для header */
 header {
@@ -26,6 +37,10 @@ header img {
     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5)); /* Тень для логотипа */
 }
 
+header ul {
+    margin-right: 20px;
+}
+
 header .nav-link {
     color: white; /* Белый цвет текста для ссылок в заголовке */
     transition: color 0.3s;
@@ -37,9 +52,9 @@ header .nav-link:hover {
 
 /* Убираем тень от текста логотипа и делаем его белым */
 header span {
-    font-family: 'Russo One', sans-serif;
-    color: white; /* Белый цвет текста для логотипа */
-    text-shadow: none; /* Убираем тень текста */
+    font-family: 'Russo One', sans-serif !Important;
+    color: white !important; /* Белый цвет текста для логотипа */
+    text-shadow: none !important; /* Убираем тень текста */
 }
 
 /* Стили для основного контента */
@@ -109,9 +124,10 @@ footer a:hover {
 footer {
     background-color: #ffc29e; /* Светлый оранжевый фон для подвала */
     color: white !important; /* Принудительно делаем текст белым */
-    padding: 0.5rem 0; /* Отступы сверху и снизу */
     margin-top: auto; /* Прикрепляет footer к нижней части страницы */
+    margin-bottom: 0 !important;
     width: 100%;
+
 }
 
 footer a {
@@ -121,4 +137,24 @@ footer a {
 
 footer a:hover {
     text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+#logo-text {
+    text-shadow: none;
+}
+
+p {
+    font-size: 1.2rem; /* Увеличение размера текста */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+.lead {
+    font-size: 1.25rem; /* Увеличение размера шрифта */
+    line-height: 1.6; /* Межстрочный интервал */
+    margin-bottom: 1.5rem; /* Нижний отступ */
+}
+
+
+.shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Можно изменить значения для более сильной тени */
 }

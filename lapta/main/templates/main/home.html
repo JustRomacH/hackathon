@@ -1,13 +1,35 @@
 {% extends 'main/base.html' %}
 
 {% block links %}
-<li class="nav-item"><a href="{% url 'home' %}" class="nav-link active" aria-current="page">Главная</a></li>
-<li class="nav-item"><a href="{% url 'teams' %}" class="nav-link">Команды</a></li>
-<li class="nav-item"><a href="{% url 'matches' %}" class="nav-link">Матчи</a></li>
-<li class="nav-item"><a href="{% url 'seasons' %}" class="nav-link">Сезоны</a></li>
-<li class="nav-item"><a href="{% url 'about' %}" class="nav-link">О нас</a></li>
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link active" aria-current="page">Главная</a></li>
+    <li class="nav-item"><a href="{% url 'teams' %}" class="nav-link">Команды</a></li>
+    <li class="nav-item"><a href="{% url 'matches' %}" class="nav-link">Матчи</a></li>
+    <li class="nav-item"><a href="{% url 'seasons' %}" class="nav-link">Сезоны</a></li>
+    <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">О нас</a></li>
 {% endblock %}
 
 {% block content %}
-<h1>Главная</h1>
+    {% load static %}
+
+    <h1 class="display-1 text-center fw-bold my-5 text-white" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Главная</h1>
+    <div class="container" id="main">
+        <section class="row align-items-center my-5">
+            <div class="col-md-6">
+                <div class="p-5 bg-light rounded-4 shadow">
+                    <h1 class="display-5 fw-bold">Лапта – исконно русская игра для всех возрастов!</h1><br>
+                    <p class="lead">
+                        Лапта – это динамичная и захватывающая командная игра с многовековой историей. Эта игра сочетает
+                        элементы бега, ловкости и командной работы, привнося азарт и веселье каждому, кто в ней
+                        участвует.
+                    </p>
+                    <p class="lead">
+                        Присоединяйтесь к традиции и испытайте себя в лапте – игре, объединяющей поколения!
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="{% static 'main/images/lapta-img.jpeg' %}" alt="Лапта игра" class="img-fluid rounded-4 shadow">
+            </div>
+        </section>
+    </div>
 {% endblock %}

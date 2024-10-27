@@ -11,7 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'main/images/logo.svg' %}" type="image/svg+xml">
     <style>
+        {% block styles %}
+        {% endblock %}
         body {
             background-image: url("{% static 'main/images/pattern.svg' %}");
             background-repeat: repeat; /* Повторяем изображение */
@@ -21,9 +24,9 @@
 <body>
 
     <header class="d-flex flex-wrap justify-content-between align-items-center py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+        <a href="{% url 'home' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
             <img src="{% static 'main/images/logo.svg' %}" alt="Логотип" width="50" height="50" class="me-2">
-            <span class="fs-4 text-dark" id="logo-text">LaptaHub</span>
+            <span class="fs-4" id="logo-text">LaptaHub</span>
         </a>
         <ul class="nav nav-pills">
             {% block links %}

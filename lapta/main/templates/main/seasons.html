@@ -1,13 +1,30 @@
 {% extends 'main/base.html' %}
 
 {% block links %}
-<li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Главная</a></li>
-<li class="nav-item"><a href="{% url 'teams' %}" class="nav-link">Команды</a></li>
-<li class="nav-item"><a href="{% url 'matches' %}" class="nav-link">Матчи</a></li>
-<li class="nav-item"><a href="{% url 'seasons' %}" class="nav-link active" aria-current="page">Сезоны</a></li>
-<li class="nav-item"><a href="{% url 'about' %}" class="nav-link">О нас</a></li>
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Главная</a></li>
+    <li class="nav-item"><a href="{% url 'teams' %}" class="nav-link">Команды</a></li>
+    <li class="nav-item"><a href="{% url 'matches' %}" class="nav-link">Матчи</a></li>
+    <li class="nav-item"><a href="{% url 'seasons' %}" class="nav-link active" aria-current="page">Сезоны</a></li>
+    <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">О нас</a></li>
 {% endblock %}
 
 {% block content %}
-<h1>Сезоны</h1>
+    <h1 class="display-1 text-center fw-bold my-5 text-white" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+        Сезоны</h1>
+    {% if seasons %}
+        {% for season in seasons %}
+            <div class="p-5 mb-4 bg-body-tertiary rounded-4 mx-auto" style="max-width: 600px;">
+                <div class="text-center">
+                    <h2>Сезон {{ season.0 }}</h2>
+                    <br>
+                    <h3>Дата проведения: {{ season.1 }}</h3>
+                    <br>
+                    <h3>Победитель: {{ season.2 }}</h3>
+                    <h3>(Из г. {{ season.3 }})</h3>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h3 class="display-3 text-center fw-bold my-5 text-white" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Похоже тут пока пусто...</h3>
+    {% endif %}
 {% endblock %}

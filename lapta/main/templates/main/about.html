@@ -1,13 +1,77 @@
 {% extends 'main/base.html' %}
 
 {% block links %}
-<li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Главная</a></li>
-<li class="nav-item"><a href="{% url 'teams' %}" class="nav-link" aria-current="page">Команды</a></li>
-<li class="nav-item"><a href="{% url 'matches' %}" class="nav-link">Матчи</a></li>
-<li class="nav-item"><a href="{% url 'seasons' %}" class="nav-link">Сезоны</a></li>
-<li class="nav-item"><a href="{% url 'about' %}" class="nav-link active">О нас</a></li>
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Главная</a></li>
+    <li class="nav-item"><a href="{% url 'teams' %}" class="nav-link" aria-current="page">Команды</a></li>
+    <li class="nav-item"><a href="{% url 'matches' %}" class="nav-link">Матчи</a></li>
+    <li class="nav-item"><a href="{% url 'seasons' %}" class="nav-link">Сезоны</a></li>
+    <li class="nav-item"><a href="{% url 'about' %}" class="nav-link active">О нас</a></li>
 {% endblock %}
 
 {% block content %}
-<h1>О нас</h1>
+    {% load static %}
+
+    <h1 class="display-1 text-center fw-bold my-5 text-white" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">О нас</h1>
+    <div class="container" id="main">
+        <section class="row align-items-center my-5">
+            <div class="col-md-6">
+                <div class="p-5 bg-light rounded-4 shadow">
+                    <h1 class="display-5 fw-bold">Мы</h1><br>
+                    <p class="lead">
+                        Мы ученики школы №252 и одновременно фанаты древнерусской игры Лапты. Наша любовь к этому
+                        уникальному виду спорта вдохновила нас на создание сайта, посвященного профессиональным матчам
+                        по этому виду спорта. Лапта — это не просто игра; это целая эпоха, которая тесно связана с
+                        русскими традициями и образом жизни.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="{% static 'main/images/based.jpg' %}" alt="Мы" class="img-fluid rounded-4 shadow">
+            </div>
+        </section>
+    </div>
+    <div class="container" id="main">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="p-5 bg-light rounded-4 shadow text-center">
+                    <h1 class="display-5 fw-bold">Почему лапта?</h1><br>
+                    <p class="lead">
+                        С самого детства мы увлекаемся Лаптой, участвуем в соревнованиях и изучаем её истоки. Эта игра
+                        развивает не только физическую активность, но и командный дух, что делает её особенно ценным
+                        опытом для нас, как для школьников. Мы стремимся привлечь к Лапте больше людей, поделиться
+                        знаниями и впечатлениями, и поэтому решили создать платформу, которая объединит всех фанатов
+                        этого вида спорта.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="main">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="p-5 bg-light rounded-4 shadow text-center">
+                    <h1 class="display-5 fw-bold">Для чего сайт?</h1><br>
+                    <p class="lead">
+                        С помощью нашего проекта мы хотим сохранить и популяризировать древнерусские традиции, а также
+                        создать сообщество, объединяющее людей, которые разделяют нашу страсть к Лапте
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="main">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="p-5 bg-light rounded-4 shadow text-center">
+                    <h1 class="display-5 fw-bold">Планы по развитию</h1><br>
+                    <p class="lead">
+                        На нашем сайте мы планируем размещать расписание матчей их результаты , а также фотографии и
+                        видео с матчей. Также мы будем проводить интервью с игроками и тренерами, чтобы дать возможность
+                        каждому узнать больше о Лапте и её участниках. Мы надеемся, что наш сайт станет местом для
+                        удобного просмотра статистики команд
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
