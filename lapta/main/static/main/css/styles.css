@@ -1,56 +1,124 @@
-body {
-    background-repeat: repeat; /* Повторяем изображение по всей площади */
-    color: #333; /* Тёмно-серый цвет текста */
-    font-family: 'Arial', sans-serif; /* Шрифт для всего документа */
-    margin: 0; /* Убираем отступы у body */
+/* Основные настройки для body и html */
+body, html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: "JetBrains Mono", sans-serif;
 }
 
+/* Настройки для header */
 header {
     background-color: rgba(254, 154, 76, 0.9); /* Полупрозрачный основной цвет */
-    padding: 0; /* Убираем отступы */
+    padding: 0;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Добавление тени */
 }
 
-.text-main {
-    color: #fe9a4c; /* Основной цвет */
+header a {
+    padding-left: 20px; /* Отступ слева для логотипа */
+    text-decoration: none;
+    color: white; !important;
 }
 
-.text-dark {
-    color: #222; /* Более тёмный цвет текста */
+header img {
+    margin-left: 20px;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5)); /* Тень для логотипа */
 }
 
-.text-light {
-    color: #ffc29e; /* Светлый оттенок */
+header .nav-link {
+    color: white; /* Белый цвет текста для ссылок в заголовке */
+    transition: color 0.3s;
 }
 
+header .nav-link:hover {
+    color: white; /* Основной цвет при наведении */
+}
+
+/* Убираем тень от текста логотипа и делаем его белым */
+header span {
+    font-family: 'Russo One', sans-serif;
+    color: white; /* Белый цвет текста для логотипа */
+    text-shadow: none; /* Убираем тень текста */
+}
+
+/* Стили для основного контента */
+#main {
+    flex-grow: 1; /* Растягивает основной контейнер */
+    padding: 1rem;
+}
+
+/* Стили для кнопок */
 .btn-custom {
-    background-color: #fe9a4c; /* Основной цвет кнопки */
-    color: white; /* Цвет текста кнопки */
-    border: none; /* Убираем границу */
+    background-color: #fe9a4c;
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
 }
 
 .btn-custom:hover {
     background-color: #d67e2e; /* Темный оранжевый для эффекта наведения */
 }
 
+/* Настройки для footer */
 footer {
     background-color: #ffc29e; /* Светлый оранжевый фон для подвала */
-    color: #333; /* Тёмно-серый текст в подвале */
-    padding: 0; /* Убираем отступы */
+    color: white; !important; /* Белый цвет текста */
+    padding: 0.5rem 0;
+    margin-top: auto;
+    margin-bottom: 0;/* Прикрепляет footer к нижней части страницы */
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Добавление тени */
+}
+
+/* Добавление тени к тексту в footer */
+footer p,
+footer a {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Тень текста */
+    color: white; !important;
 }
 
 footer a {
-    color: #333; /* Тёмно-серый цвет ссылок в подвале */
+    color: white; /* Белый цвет ссылок в подвале */
+    text-decoration: none;
 }
 
 footer a:hover {
     text-decoration: underline; /* Подчеркивание при наведении */
 }
 
-/* Стили для ссылок в заголовке */
-header .nav-link {
-    color: #222; /* Основной цвет текста */
+/* Цвета текста */
+.text-main {
+    color: #fe9a4c; /* Основной цвет текста */
 }
 
-header .nav-link:hover {
-    color: #fe9a4c; /* Цвет текста при наведении */
+.text-dark {
+    color: #222; /* Темный цвет текста */
+}
+
+.text-light {
+    color: #ffc29e; /* Светлый оттенок */
+}
+
+/* Активные ссылки в навигации */
+.nav-pills .nav-link.active {
+    background-color: #d67e2e !important; /* Темный фон для активной ссылки */
+    color: white !important; /* Белый цвет текста для активной ссылки */
+}
+
+footer {
+    background-color: #ffc29e; /* Светлый оранжевый фон для подвала */
+    color: white !important; /* Принудительно делаем текст белым */
+    padding: 0.5rem 0; /* Отступы сверху и снизу */
+    margin-top: auto; /* Прикрепляет footer к нижней части страницы */
+    width: 100%;
+}
+
+footer a {
+    color: white !important; /* Принудительно делаем ссылки белыми */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
 }

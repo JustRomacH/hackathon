@@ -10,4 +10,18 @@
 
 {% block content %}
 <h1>Матчи</h1>
+{% for match in matches %}
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+      <div class="container-fluid py-5">
+        <h2>{{ match.2 }} VS {{ match.3 }}</h2>
+        <h4>Дата проведения: {{ match.5 }}</h4>
+        <h4>Место проведения: {{ match.6 }}</h4>
+        <h3>{{ match.7.0 }}:</h3>
+          <h4>{{ match.7.1 }} очков, судья - {{ match.9.0 }}, {{ match.9.1 }} лет опыта</h4>
+        <h3>{{ match.8.0 }}:</h3>
+          <h4>{{ match.8.1 }} очков, судья - {{ match.10.0 }}, {{ match.10.1 }} лет опыта</h4>
+        <h3>Победитель: {{ match.4 }}</h3>
+      </div>
+    </div>
+{% endfor %}
 {% endblock %}

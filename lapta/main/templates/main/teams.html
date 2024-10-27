@@ -10,4 +10,20 @@
 
 {% block content %}
 <h1>Команды</h1>
+{% for team in teams %}
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+      <div class="container-fluid py-5">
+        <h2>{{ team.1 }}</h2>
+        <h5>Город {{ team.2 }}, создана в {{ team.3 }} году</h5><br>
+        <h3>Статистика</h3>
+        <p>
+            Всего сыграно игр: {{ team.4 }}<br>
+            Побед {{ team.5 }}<br>
+            Поражений {{ team.6 }}
+        </p><br>
+        <h3>Состав команды:</h3>
+        <p>{{ team.7.0 }}, {{ team.7.1 }}<br>{{ team.8.0 }}, {{ team.8.1 }}</p>
+      </div>
+    </div>
+{% endfor %}
 {% endblock %}

@@ -15,9 +15,11 @@ class DataBase:
 
     # Возвращает выбранные значения всех юзеров
     def get_values(
-            self, value: str, table: str, cond: str, cond_value: int, order: str = None, reverse: bool = False
+            self, value: str, table: str, cond: str = None, cond_value: int = None, order: str = None, reverse: bool = False
     ) -> list[list[int]]:
-        req = f"SELECT {value} FROM {table} WHERE {cond} = {cond_value} "
+        req = f"SELECT {value} FROM {table} "
+        if cond:
+            req += f"WHERE {cond} = {cond_value} "
         # Порядок сортировки
         if order:
             req += f"ORDER BY {order} "
