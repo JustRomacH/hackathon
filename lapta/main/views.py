@@ -71,7 +71,6 @@ def seasons(request):
         team_name = team_info[0]
         team_city = team_info[1]
         seasons_db.append((season_id, year, team_name, team_city))
-    print(seasons_db)
     return render(
         request, 'main/seasons.html', {"seasons": seasons_db}
     )
