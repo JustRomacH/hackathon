@@ -13,7 +13,7 @@ class DataBase:
         )
         return req.fetchone()[0]
 
-    # Возвращает выбранные значения всех юзеров
+    # Возвращает выбранные значения
     def get_values(
             self, value: str, table: str, cond: str = None, cond_value: int = None, order: str = None, reverse: bool = False
     ) -> list[list[int]]:

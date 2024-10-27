@@ -49,7 +49,8 @@ def matches(request):
                     "name, experience_years", "judges", "id", team_score[2])[0]
             )
 
-        matches_db.append(list(match)
+        matches_db.append(
+            list(match)
               + list(games_db)
               + [[first_team, scores_db[0][1], scores_db[0][2]]]
               + [[second_team, scores_db[1][1], scores_db[1][2]]]
