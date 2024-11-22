@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .databse import DataBase
+from .database import DataBase
 
 # Create your views here.
 def home(request):
@@ -31,21 +31,21 @@ def matches(request):
     for match in db.get_values("*", "matches"):
         game_id = match[1]
         match = list(match)
-        team_name1 = db.get_value("team_name", "teams", "id", match[2])
-        team_name2 = db.get_value("team_name", "teams", "id", match[3])
+        team_name1 = db.get_value("team_name", "teams", "team_id", match[2])
+        team_name2 = db.get_value("team_name", "teams", "team_id", match[3])
         match[2] = team_name1
         match[3] = team_name2
-        match[4] = db.get_value("team_name", "teams", "id", match[4])
-        games_db = db.get_values("game_date, location", "games", "id", game_id)[0]
+        match[4] = db.get_value("team_name", "teams", "team_id", match[4])
+        games_db = db.get_values("game_date, location", "games", "game_id", game_id)[0]
         scores_db = db.get_values("team_id, score, judge_id", "scores", "game_id", game_id)
-        first_team = db.get_value("team_name", "teams", "id", scores_db[0][0])
-        second_team = db.get_value("team_name", "teams", "id", scores_db[1][0])
+        first_team = db.get_value("team_name", "teams", "team_id", scores_db[0][0])
+        second_team = db.get_value("team_name", "teams", "team_id", scores_db[1][0])
         judges = []
 
         for team_score in scores_db:
             judges.append(
                 db.get_values(
-                    "name, experience_years", "judges", "id", team_score[2])[0]
+                    "name, experience_years", "judges", "judge_id", team_score[2])[0]
             )
 
         matches_db.append(
@@ -66,7 +66,7 @@ def seasons(request):
         year = season[1]
         team_id = season[2]
         team_info = db.get_values(
-            "team_name, city", "teams", "id", team_id
+            "team_name, city", "teams", "team_id", team_id
         )[0]
         team_name = team_info[0]
         team_city = team_info[1]
